@@ -4,12 +4,11 @@
 // public class Main {
 //     public static void main(String[] args) {
 //         Scanner scn = new Scanner(System.in);
-//         int naturalNum = scn.nextInt();
+//         int num_A = scn.nextInt();
+//         int num_B = scn.nextInt();
 
-//         int i = 1;
-//         while (naturalNum > 0) {
-//             System.out.print(naturalNum+ " ");
-//             naturalNum--;
+//         for(int val = num_A; val<=num_B; val++) {
+//             System.out.print(val + " ");
 //         }
 //     }
 // }
