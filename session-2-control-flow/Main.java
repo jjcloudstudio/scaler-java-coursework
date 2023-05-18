@@ -1,25 +1,23 @@
-import java.util.*;
 import java.lang.*;
-import java.io.*;
+import java.util.*;
 
 public class Main {
-
-    static int maxOfTwo(int a, int b) {
-        if (a > b) {
-            System.out.println(a);
-            return a;
-        } else {
-            System.out.println(b);
-            return b;
-        }
-    }
-
     public static void main(String[] args) {
-        try (Scanner scn = new Scanner(System.in)) {
-            int theFirstNum = scn.nextInt();
-            int secondNumber = scn.nextInt();
+        Scanner scn = new Scanner(System.in);
+        int num_A = scn.nextInt();
+        int num_B = scn.nextInt();
 
-            System.out.println("Max of two numbers is: " + maxOfTwo(theFirstNum, secondNumber));
+        int HCF = 0;
+        int LCM = 0;
+
+        int max_common_divisor = num_A * num_B; // i think i am doing it wrong please check and comment it
+
+        for(int i=1; i<=max_common_divisor; i++){
+            if(num_A%i==0 && num_B%i==0){
+                HCF = i;
+            }
         }
+
+        System.out.println(HCF);
     }
 }
