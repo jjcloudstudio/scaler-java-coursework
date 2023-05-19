@@ -1,3 +1,5 @@
+//LCM of two numbers
+
 import java.lang.*;
 import java.util.*;
 
@@ -7,17 +9,18 @@ public class Main {
         int num_A = scn.nextInt();
         int num_B = scn.nextInt();
 
-        int HCF = 0;
-        int LCM = 0;
+        int HCF = 1;
+        int LCM = 1;
 
-        int max_common_divisor = num_A * num_B; // i think i am doing it wrong please check and comment it
-
-        for(int i=1; i<=max_common_divisor; i++){
+        int min_number = Math.min(num_A, num_B); 
+        
+        for(int i=1; i<=min_number; i++){
             if(num_A%i==0 && num_B%i==0){
                 HCF = i;
             }
         }
 
-        System.out.println(HCF);
+        LCM = (num_A*num_B)/HCF;
+        System.out.println(LCM);
     }
 }
