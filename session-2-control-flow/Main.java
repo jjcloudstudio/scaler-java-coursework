@@ -3,32 +3,51 @@ import java.util.*;
 
 public class Main {
 
-    static boolean isPerfectSquare(int N){
-        int i = 1;
-        while(i*i <= N){
-            if(i*i == N){
-                return true;
+    static void printPattern(int num_A) {
+        for (int i = 1; i <= num_A; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
             }
-            i++;
+            //print spaces in between
+            if (i != num_A) {
+                for (int j = 1; j <= num_A - i; j++) {
+                    System.out.print("  ");
+                }
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
         }
-        return false;
-    }
-    static int sumEven(int N){
-        int sum = 0;
-        for(int i = 2; i <= N; i=i+2){
-            sum = sum + i;
-        }
-        return sum;
+        
     }
 
-    static int takeInput(){
+
+
+    public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         int num_A = scn.nextInt();
-        return num_A;
-    }
-    public static void main(String[] args) {
-        int num_A = takeInput();
-        boolean finalAns = isPerfectSquare(num_A);
-        System.out.println(finalAns);
+        int temp_num_A = num_A;
+
+        printPattern(num_A);
+
+        // for(int i = num_A; i >= 1; i--){
+        // for(int j = 1; j <= i; j++){
+        // System.out.print("*");
+        // }
+        // if(num_A == temp_num_A){
+        // for(int j = 1; j <= temp_num_A; j++){
+        // System.out.print("*");
+        // }
+        // temp_num_A--;
+        // }
+        // else{
+        // for(int j = 1; j <= temp_num_A; j++){
+        // System.out.print(" ");
+        // }
+        // temp_num_A--;
+        // }
+        // System.out.println();
+        // }
     }
 }
