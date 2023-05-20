@@ -3,24 +3,24 @@ import java.util.*;
 
 public class Main {
 
-    static void printFactorial(int num_A) {
-        int factorial = 1;
-        if (num_A == 0) {
-            System.out.println("1");
-            return;
+    static int powerFunction (int A, int B) {
+        
+        // int powerFunAns = 1;
+
+        int finalPowerVal = 1;
+        for(int i=1; i<=B; i++) {
+            finalPowerVal = finalPowerVal*A;
         }
-        for (int i = 1; i <= num_A; i++) {
-            factorial = factorial * i;
-        }
-        System.out.println(factorial);
+
+        return finalPowerVal;
     }
 
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         int num_A = scn.nextInt();
-        int temp_num_A = num_A;
+        int num_B = scn.nextInt();
 
-        printFactorial(num_A);
+        System.out.println(powerFunction(num_A, num_B));
 
     }
 }
