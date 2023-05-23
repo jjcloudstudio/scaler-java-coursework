@@ -1,3 +1,9 @@
+//____1_
+// ___1_2_
+// __1_2_3_
+// _1_2_3_4_
+// 1_2_3_4_5_
+
 import java.lang.*;
 import java.util.*;
 
@@ -9,7 +15,7 @@ public class Main {
 
         for(int i=1; i<=num; i++){
             //task for i-th row
-            for(int j=1; j<=num-i; j++){ // n+m = i+1 => m = i+1-n
+            for(int j=1; j<=num-i; j++){ // i + spaces = num => spaces = num-i 
                 System.out.print("_");
             }
 
