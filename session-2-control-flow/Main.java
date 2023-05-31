@@ -1,25 +1,23 @@
-// 1
-// 2
-// 3
-// 5
-// 6
-// 75
+
 import java.lang.*;
 import java.util.*;
 
 public class Main {    
     public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int size_of_array = scn.nextInt();
+        int arr[] = new int[size_of_array];
         
-        int sum = 0;
-
-        for(int i=1; i<=5; i++){
-            Scanner scn = new Scanner(System.in);
-            int num = scn.nextInt();
-
-            sum = sum + num*num;
+        for(int i=0; i<size_of_array; i++) {
+            arr[i] = scn.nextInt();
         }
-        System.out.println(sum);
 
+        int max = arr[0];
+        for(int i=0; i<arr.length; i++) {
+            if(arr[i] > max) {
+                max = arr[i];
+            }    
+        }
+        System.out.println(max);
     }
 }
-
