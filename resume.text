@@ -1,0 +1,251 @@
+%-------------------------
+% Resume in Latex
+% Author : Jagjit Singh
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Jagjit Singh} \\ \vspace{1pt}
+    \small 403-635-6520 $|$ \href{mailto:jagjit4296@gmail.com}{\underline{jagjit4296@gmail.com}} $|$ 
+    \href{https://www.linkedin.com/in/jagjit-singh-9b8a4512a/}{\underline{linkedin.com/in/jagjit}} $|$
+    \href{https://github.com/jjcloudstudio}{\underline{github.com/jjcloudstudio}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University Of Lethbridge}{Lethbridge, Alberta}
+      {Bachelor of Science in Computer Science}{Sep. 2019 -- Sep 2022}
+    \resumeSubheading
+      {Punjab Technical University}{Punjab, India}
+      {Bachelor of Technology in Electrical and Computer Engineering}{Sep. 2016 -- Sep 2018}
+  \resumeSubHeadingListEnd
+
+
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Relevant Courses}{: Statistical Probability - STATS3500, Linear Algebra - MATH3410, Combinatorics - MATH3860} \\
+    \textbf{Certification}{: \href{https://www.credly.com/badges/b1a8d9c5-849e-43d8-899e-3c500f04270e} {\underline{Microsoft Certified: Azure Fundamentals}} $|$
+    \href{https://learn.microsoft.com/users/jagjitsingh5837/transcript/d5oejuykm80mgjz} {\underline{Microsoft Certified: Security Operations Analyst Associate}} $|$
+    \href{https://www.credly.com/badges/c122b601-a175-4387-abd9-58f6fc617a5a} {\underline{HashiCorp Certified: Terraform Associate}} $|$
+    \href{https://www.credly.com/badges/fb94ac0f4d40-403e-a526-fd3f93f5b6dd} {\underline{AWS Certified: Educate Cloud Computing}} $|$
+    } \\
+  }}
+\end{itemize}
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages}{: Python, SQL, R, C++} \\
+    \textbf{Frameworks and Libraries}{: Django, BS4, Pandas, Hmisc, NumPy} \\
+    \textbf{Developer Tools}{: Git, pyCharm, C-Lion, JupyterLab, MySQL, R-Studio} \\
+    \textbf{Data Visualization}{: Tableau, Microsoft PowerBI}
+  }}
+\end{itemize}
+
+
+%-------------------------------------------%
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+    {Product Support Engineer}{Sep. 2022 -- April 2023}
+    {University of Lethbridge}{Lethbridge, AB}
+    \resumeItemListStart
+      \resumeItem{Reduced downtime by 30\%  through effective resolution of critical system issues for external customers.}
+      \resumeItem{Achieved a 95\% customer satisfaction rate by providing prompt support and delivering innovative solutions in collaboration with multinational SAP experts.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+      {Undergraduate Research Assistant}{Sep. 2021 -- Aug 2022}
+      {University of Lethbridge}{Lethbridge, AB}
+      \resumeItemListStart
+        \resumeItem{Analyzed and visualized complex data sets using Microsoft Power BI, resulting in actionable insights and improved decision-making for the research team.}
+        \resumeItem{Developed and maintained data pipelines to efficiently extract, transform, and load JSON format data into Power BI for analysis and visualization.}
+      \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+    \resumeSubheading
+      {Developer Intern}{Jan. 2020 -- Sep. 2021}
+      {Advance Auto Color}{Calgary, AB}
+      \resumeItemListStart
+        \resumeItem{Built scalable Django web app for inventory management of 1000+ automotive parts with a user-friendly interface, search, and filter options based on multiple criteria.}
+        \resumeItem{Optimized warehouse space by maintaining a database of already available parts, resulting in a 20\% reduction in storage costs and minimizing inventory waste}
+        \resumeItem{Identified issues in software processes and implemented database optimization.}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+  
+
+
+%-----------PROJECTS-----------%
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Gender Difference in COVID-19 Death Rate} $|$ \emph{Python, R, Hmisc}}{Sep. 2022 -- Dec. 2022}
+          \resumeItemListStart
+            \resumeItem{Conducted thorough data analysis of a Kaggle dataset of over 2,000 COVID-19 patients using R, identifying key trends and patterns in the data.}
+            \resumeItem{Utilized statistical hypothesis testing techniques, including null and alternative hypothesis testing, to assess the significance of the observed gender difference in the COVID-19 death rate, achieving a confidence level of 95\%.}
+            \resumeItem{Identified a statistically significant gender difference in COVID-19 death rate, with men having a death rate of 3.5\% and women having a death rate of 2.9\%, a difference of 0.6 percentage points.}
+          \resumeItemListEnd
+          
+      \resumeProjectHeading
+          {\textbf{Football Match Predictor} $|$ \emph{Python, SQL, BS4, Pandas, Scikit-Learn}}{Jan. 2023 -- March 2023}
+          \resumeItemListStart
+            \resumeItem{Scraped, refined, and merged diverse data sources using BeautifulSoup and Pandas to produce a clean dataset of 1,500+ records covering player stats, team performance, shooting, and match results.}
+            \resumeItem{Developed and trained a machine learning model using Python and advanced ML libraries such as Scikit-Learn, achieving an accuracy rate of 72\% in predicting the outcomes of the remaining Premier League matches.}
+
+
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+
+
+% %-----------PROJECTS-----------%
+% \section{Volunteering \& Clubs}
+%     \resumeSubHeadingListStart
+%       \resumeProjectHeading
+%           {\textbf{Pashto Interpreter Volunteer} $|$ \emph{Remote}}{Oct. 2021 -- Dec. 2022}
+%           \resumeItemListStart
+%             \resumeItem{Acted as a Pashto interpreter for a refugee family, facilitating communication with their host family, doctors, and community resources to ensure a smooth transition to life in America.}
+%             \resumeItem{Assisted the family with appointments with medical providers, explaining medical procedures, and ensuring they received appropriate care.}
+%           \resumeItemListEnd
+          
+%       \resumeProjectHeading
+%           {\textbf{University Chess Club} $|$ \emph{University of Lethbridge}}{Sep. 2022 -- April 2023}
+%           \resumeItemListStart
+%             \resumeItem{Developed and refined strategic thinking and analytical skills through active participation in the university chess club, regularly analyzing and competing against other skilled players.}
+
+
+
+%           \resumeItemListEnd
+%     \resumeSubHeadingListEnd
+
+
+
+\centering\textbf{REFERENCES AVAILABLE UPON REQUEST}
+
+
+\end{document}
