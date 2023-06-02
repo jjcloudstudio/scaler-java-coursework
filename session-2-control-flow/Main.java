@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {    
@@ -15,23 +16,27 @@ public class Main {
         return arr;
     }
 
-    static int[] rightShift_ofArray(int[] A){
-        int[] rightShiftOfArray2 = new int[A.length];
-        int lastElement = A[A.length-1];
-        for(int i=0; i<A.length-1; i++){
-            rightShiftOfArray2[i+1] = A[i];
+    static int[] getEvenNumbers(int[] A){
+        ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
+        int j = 0;
+        for(int i=0; i<A.length; i++){
+            if(A[i]%2 == 0){
+                evenNumbers.add(A[i]);
+            }
         }
-        rightShiftOfArray2[0] = lastElement;
-        for(int i=0; i<rightShiftOfArray2.length; i++){
-            System.out.print(rightShiftOfArray2[i] + " ");
+        int[] result = new int[evenNumbers.size()];
+        for(int i=0; i<evenNumbers.size(); i++){
+            result[i] = evenNumbers.get(i);
         }
-        return null;
+        return result;
     }
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int total_cases = takeArraySize(sc);
         int[] arr = takeArray(sc, total_cases);
-        int[] rightShiftOfArray = rightShift_ofArray(arr);
+        int[] evenNumbers = getEvenNumbers(arr);
+        System.out.println(Arrays.toString(evenNumbers));
+        
     }
 } 
