@@ -15,26 +15,23 @@ public class Main {
         return arr;
     }
 
-    static int[] NumOfElementGreaterThanItself(int[] A){
-        int max = Integer.MIN_VALUE;
-        for(int i=0; i<A.length; i++){
-            max = Math.max(max, A[i]);
+    static int[] rightShift_ofArray(int[] A){
+        int[] rightShiftOfArray2 = new int[A.length];
+        int lastElement = A[A.length-1];
+        for(int i=0; i<A.length-1; i++){
+            rightShiftOfArray2[i+1] = A[i];
         }
-        int count = 0;
-        for(int i=0; i<A.length; i++){
-            if(A[i] < max){
-                count++;
-            }
+        rightShiftOfArray2[0] = lastElement;
+        for(int i=0; i<rightShiftOfArray2.length; i++){
+            System.out.print(rightShiftOfArray2[i] + " ");
         }
-        return count;
+        return null;
     }
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int total_cases = takeArraySize(sc);
         int[] arr = takeArray(sc, total_cases);
-        int B = sc.nextInt();
-        int C = sc.nextInt();
-        int[] reverse_PartOf_Array = NumOfElementGreaterThanItself(arr);
+        int[] rightShiftOfArray = rightShift_ofArray(arr);
     }
 } 
