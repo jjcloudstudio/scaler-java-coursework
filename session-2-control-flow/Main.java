@@ -1,41 +1,62 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
+    static int takeArraySize(Scanner sc) {
+        int total_cases = sc.nextInt();
+        return total_cases;
+    }
 
-    static int[][] takeArray(Scanner sc, int rows, int columns){
-        int[][] arr = new int[rows][columns];
-        for(int i=0; i<rows; i++){
-            for(int j=0; j<columns; j++){
+    static int[] takeArray(Scanner sc, int total_cases) {
+        int[] arr = new int[total_cases];
+        for (int i = 0; i < total_cases; i++) {
+            arr[i] = sc.nextInt();
+        }
+        return arr;
+    }
+
+    static int[][] takeArray2D(Scanner sc, int total_cases) {
+        int[][] arr = new int[total_cases][total_cases];
+        for (int i = 0; i < total_cases; i++) {
+            for (int j = 0; j < total_cases; j++) {
                 arr[i][j] = sc.nextInt();
             }
         }
         return arr;
     }
 
-    static int[][] addTwoMatrix(int[][] A, int[][]B){
-        int n=A.length;
-        int m=A[0].length;
-        int[][] C = new int[n][m];
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                C[i][j] = A[i][j] + B[i][j];
+    public void rotateMatrix90degreeClockwise(int[][] A) {
+        // First, we perform the matrix transposition.
+        // A.length gives us the size of the matrix.
+        // Transposition is achieved by swapping elements at position (i,j) with elements at position (j,i)
+        // We only iterate up to j=i to avoid swapping elements back to their original position
+        for(int i=0; i<A.length; i++){
+            for(int j=i; j<A[i].length; j++){
+                int temp = A[i][j];
+                A[i][j] = A[j][i];
+                A[j][i] = temp;
             }
         }
-        return C;
+
+        // After transposition, we reverse each row to achieve the final rotated matrix.
+        // The inner loop only goes up to A.length/2 because we're swapping elements across the midpoint
+        for(int i=0; i<A.length; i++){
+            for(int j=0; j<A[i].length/2; j++){
+                int temp = A[i][j];
+                A[i][j] = A[i][A[i].length-1-j];
+                A[i][A[i].length-1-j] = temp;
+            }
+        }
     }
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int rows = sc.nextInt();
-        int columns = sc.nextInt();
-        int[][] arr1 = takeArray(sc, rows, columns);
-        int[][] arr2 = takeArray(sc, rows, columns);
-        int[][] addedThirdMatrix = addTwoMatrix(arr1, arr2);
-        for(int i=0; i<rows; i++){
-            for(int j=0; j<columns; j++){
-                System.out.print(addedThirdMatrix[i][j] + " ");
-            }
-            System.out.println();
-        }
+        int total_cases = takeArraySize(sc);
+        int[] arr1 = takeArray(sc, total_cases);
+        int[][] arr2 = takeArray2D(sc, total_cases);
+        int[] ansMatrix = UniqueElements(arr1);
+        System.out.println(Arrays.toString(ansMatrix)); 
+
+        rotateMatrix90degreeClockwise(arr2, arr2);
     }
 }
