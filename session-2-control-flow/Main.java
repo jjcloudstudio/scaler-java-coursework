@@ -20,16 +20,19 @@ public class Main {
         return str;
     }
 
-    //given string, count number of uppercase and lowercase characters without using built-in functions condition should be 'A' 'Z'
-    static void countUpperLower(String str) {
-        int upper = 0, lower = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z')
-                upper++;
-            else if (str.charAt(i) >= 'a' && str.charAt(i) <= 'z')
-                lower++;
+    //how to reverse a string
+    static String reverseString(String str) {
+        String rev = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev += str.charAt(i);
         }
-        System.out.println("Upper: " + upper + " Lower: " + lower);
+        return rev;
+    }
+
+    static String countString(String str){
+        //get length of string
+        int len = str.length();
+        
     }
     
     
