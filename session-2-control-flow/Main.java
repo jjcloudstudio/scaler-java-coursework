@@ -36,24 +36,24 @@ public class Main {
     }
     
     
-    public static ArrayList<ArrayList<Integer>> solve(ArrayList<ArrayList<Integer>> A) {
-        int n = A.size();
-        int m = A.get(0).size();
-    
-        ArrayList<ArrayList<Integer>>ans = new ArrayList<>();
-    
-        for(int i=0; i < n;i++) {
-            ArrayList<Integer>temp = new ArrayList<>();
-            for(int j=0; j < m;j++) {
-                if(A.get(i).get(j) % 2 == 0) {
-                    temp.add(A.get(i).get(j));
-                }
-            }
+    public static printUpperLowerCases(String str){
+        int upperCaseCount = 0;
+        int lowerCaseCount = 0;
         
-            ans.add(temp);
+        Scanner scn = new Scanner(System.in);
+        String str = scn.nextLine();
+
+        for(int i=0; i<str.length(); i++){
+            if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z'){
+                upperCaseCount++;
+            }else if(str.charAt(i) >= 'a' && str.charAt(i) <= 'z'){
+                lowerCaseCount++;
+            }
         }
-    
-        return ans;
+        System.out.println(upperCaseCount);
+        System.out.println(lowerCaseCount);
+        
+
     }
 
     // int arr[][] = new int[N][M];
@@ -69,3 +69,4 @@ public class Main {
         allDiagonalSum(arr2, arr2);
     }
 }
+
