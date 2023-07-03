@@ -1,7 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class Main {
+public class Module2Day1 {
     static int takeArraySize(Scanner sc) {
         int total_cases = sc.nextInt();
         return total_cases;
@@ -34,25 +34,45 @@ public class Main {
         int len = str.length();
         
     }
-    
-    
-    public static printUpperLowerCases(String str){
-        int upperCaseCount = 0;
-        int lowerCaseCount = 0;
-        
-        Scanner scn = new Scanner(System.in);
-        String str = scn.nextLine();
+    //declare java class
+    static class Student {
+        String name;
+        int roll_no;
+        int marks;
 
-        for(int i=0; i<str.length(); i++){
-            if(str.charAt(i) >= 'A' && str.charAt(i) <= 'Z'){
-                upperCaseCount++;
-            }else if(str.charAt(i) >= 'a' && str.charAt(i) <= 'z'){
-                lowerCaseCount++;
+        //constructor
+        Student(String name, int roll_no, int marks) {
+            this.name = name;
+            this.roll_no = roll_no;
+            this.marks = marks;
+        }
+
+        //method
+        void printDetails() {
+            System.out.println("Name: " + this.name);
+            System.out.println("Roll No: " + this.roll_no);
+            System.out.println("Marks: " + this.marks);
+        }
+    }
+    
+    public static String maxCharInString(String A){
+        char[] charArray = A.toCharArray();
+        Arrays.sort(charArray);
+        int max_count = 0;
+        char max_char = charArray[0];
+        for(int i=0; i<charArray.length; i++){
+            int current_max_count = 0;
+            for(int j=i+1; j<charArray.length-1; j++){
+                if(charArray[i] == charArray[j]){
+                    current_max_count++;
+                }
+            }
+            if(current_max_count > max_count){
+                max_count = current_max_count;
+                max_char = charArray[i];
             }
         }
-        System.out.println(upperCaseCount);
-        System.out.println(lowerCaseCount);
-        
+        return String.valueOf(max_char);
 
     }
 
