@@ -54,6 +54,14 @@ public class Module2Day1 {
             System.out.println("Marks: " + this.marks);
         }
     }
+
+    public static findUniqueElement(int[] arr){
+        int unique = 0;
+        for(int i=0; i<arr.length; i++){
+            unique = unique ^ arr[i];
+        }
+        return unique;
+    }
     
     public static String maxCharInString(String A){
         char[] charArray = A.toCharArray();
