@@ -57,6 +57,7 @@ public class Module2Day1 {
 
     public static findUniqueElement(int[] arr){
         int unique = 0;
+        int max = Integer.MIN_VALUE;
         for(int i=0; i<arr.length; i++){
             unique = unique ^ arr[i];
         }
@@ -84,8 +85,15 @@ public class Module2Day1 {
 
     }
 
+    // return max product of three elements in array
+    public static int maxProduct(int[] A){
+        Arrays.sort(A);
+        
+    }
+
     // int arr[][] = new int[N][M];
     // ArrayList<Interger> al = new ArrayList<>();
+    
     
 
     public static void main(String[] args) {
