@@ -22,6 +22,3 @@ public public class Solution {
         return true;
     }
 }
- {
-    
-}
