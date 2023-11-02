@@ -57,9 +57,8 @@ public class Module2Day1 {
 
     public static findUniqueElement(int[] arr){
         int unique = 0;
-        int max = Integer.MIN_VALUE;
         for(int i=0; i<arr.length; i++){
-            unique = unique ^ arr[i];
+            unique ^= arr[i];
         }
         return unique;
     }
