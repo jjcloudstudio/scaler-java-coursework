@@ -32,6 +32,7 @@ public class Solution { // Defining a public class named Solution
                     queue.add(neighbor); // Add the neighbor to the queue
                 }
             }
+            
         }
 
         return 0; // If no path to the target node was found, return 0

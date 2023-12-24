@@ -1,98 +1,194 @@
 //
-// This program prompts a user to enter the lengths of
-// the 3 sides of a triangle, check if they form a triangle,
-// and prints the triangle type: right, isosceles, equilateral,
-// or scalene
+// This program reads names from a file into an array of student struct type, sorts the names using selection sort
 //
-
 #include <iostream>
-#include <cmath>
+#include <fstream>
+#include <string>
+#include <cctype>
 
 using namespace std;
 
-bool isTriangle(double side1, double side2, double side3);
-bool isIsosceles(double side1, double side2, double side3);
-bool isEquilateral(double side1, double side2, double side3);
-bool isRight(double side1, double side2, double side3);
-double area(double side1, double side2, double side3);
-double perimeter(double side1, double side2, double side3);
-const double E = .0001;
+// Struct definitions
+struct personType
+{
+    string name;
+    int age;
+};
+
+// Function Prototypes
+void openFile(ifstream &);
+void closeFile(ifstream &);
+void readData(ifstream &, personType[], int &);
+int findSmallestName(const personType[], int, int);
+int findSmallestAge(const personType[], int, int);
+void swap(personType &, personType &);
+void sortNames(personType[], int);
+void sortAges(personType[], int);
+void print(const personType[], int);
+
+// Constant Declarations
+const int MAX_NAMES = 100;
 
 int main()
 {
+    ifstream in;
+    int numberOfNames;
+    personType persons[MAX_NAMES];
 
-    double side1, side2, side3;
-    char message;
-    //bool isTriangle, isRight, isEquilateral, isIsosceles;
-    do
-    {
-        cout << "Enter the lengths of the 3 sides of a triangle -- ";
-        cin >> side1 >> side2 >> side3;
+    openFile(in);
 
-        if (isTriangle(side1, side2, side3))
-        {
-            cout << "This is ";
+    readData(in, persons, numberOfNames);
 
-            if (isEquilateral(side1, side2, side3))
-                cout << "an equilateral ";
-            else if (isIsosceles(side1, side2, side3))
-                cout << "an isosceles ";
-            else
-                cout << "a scalene ";
+    cout << "Sorted by age" << endl
+         << "--------------" << endl;
+    sortAges(persons, numberOfNames);
+    print(persons, numberOfNames);
 
-            if (isRight(side1, side2, side3))
-                cout << "and right ";
+    cout << endl
+         << "Sorted by name" << endl
+         << "-------------" << endl;
+    sortNames(persons, numberOfNames);
+    print(persons, numberOfNames);
 
-            cout << "triangle" << endl;
+    closeFile(in);
 
-            cout << "Its perimeter is " << perimeter(side1, side2, side3) << endl;
-            cout << "Its area is " << area(side1, side2, side3) << endl;
-        }
-        else
-
-            cout << "This is not a triangle" << endl;
-
-        cout << "Run again? (Y/N)";
-        cin >> message;
-    } while (message == 'y' || message == 'Y');
-    cout << "Good bye!" ;
     return 0;
 }
 
-bool isTriangle(double sideA, double sideB, double sideC)
+// Purpose    -- Prompts a user to enter a file name and opens it
+// Parameters -- Inputs --
+//               Outputs --
+//               Inputs/Outputs -- ifstream i -- input file stream
+// Return     --
+void openFile(ifstream &i)
 {
-    return sideA + sideA > sideC &&
-           sideA + sideC > sideB &&
-           sideB + sideC > sideA;
+    string filename;
+    do
+    {
+        cout << "Enter a filename -- ";
+        cin >> filename;
+        i.open(filename.c_str());
+    } while (!i);
 }
 
-bool isEquilateral(double sideA, double sideB, double sideC)
+// Purpose    -- Closes a file
+// Parameters -- Inputs --
+//               Outputs --
+//               Inputs/Outputs -- ifstream file -- input file stream
+// Return     --
+void closeFile(ifstream &file)
 {
-    return fabs(sideA - sideB) < E &&
-           fabs(sideA - sideC) < E;
-}
-bool isIsosceles(double sideA, double sideB, double sideC)
-{
-    return fabs(sideA - sideB) < E ||
-           fabs(sideA - sideC) < E ||
-           fabs(sideB - sideC) < E;
+    file.close();
 }
 
-bool isRight(double sideA, double sideB, double sideC)
+// Purpose    -- Reads names from a file into an array of persons records.
+// Parameters -- Inputs -- ifstream file -- input file stream.
+//               Outputs -- personType persons[] -- array of persons records.
+//                          int &count -- number of names in the array.
+//               Inputs/Outputs --
+// Return     --
+void readData(ifstream &file, personType persons[], int &count)
 {
-    return fabs(pow(sideA, 2) - pow(sideB, 2) - pow(sideC, 2)) < E ||
-           fabs(pow(sideB, 2) - pow(sideA, 2) - pow(sideC, 2)) < E ||
-           fabs(pow(sideC, 2) - pow(sideA, 2) - pow(sideB, 2)) < E;
+    count = 0;
+    file >> persons[count].name >> persons[count].age;
+    while (!file.eof())
+    {
+        count++;
+        file >> persons[count].name >> persons[count].age;
+    }
 }
 
-double perimeter(double sideA, double sideB, double sideC)
+// Purpose    -- Finds the index of the smallest name in an array of persons records.
+// Parameters -- Inputs --  personType persons[] -- array of persons records.
+//                          int start -- starting index of the search.
+//                          int n -- number of names in the array.
+//               Outputs -- int -- index of the smallest name in the array.
+//               Inputs/Outputs --
+// Return     -- int -- index of the smallest name in the array.
+int findSmallestName(const personType persons[], int start, int n)
 {
-    return sideA + sideB + sideC;
+    int smallestIndex = start;
+    for (int i = start + 1; i < n; i++)
+    {
+        if (persons[smallestIndex].name > persons[i].name)
+        {
+            smallestIndex = i;
+        }
+    }
+    return smallestIndex;
 }
 
-double area(double sideA, double sideB, double sideC)
+// Purpose    -- Finds the index of the smallest age in an array of persons records.
+// Parameters -- Inputs --  personType persons[] -- array of persons records.
+//                          int start -- starting index of the search.
+//                          int n -- number of names in the array.
+//               Outputs -- int -- index of the smallest age in the array.
+//               Inputs/Outputs --
+// Return     -- int -- index of the smallest age in the array.
+int findSmallestAge(const personType persons[], int start, int n)
 {
+    int smallestIndex = start;
+    for (int i = start + 1; i < n; i++)
+    {
+        if (persons[smallestIndex].age > persons[i].age)
+        {
+            smallestIndex = i;
+        }
+    }
+    return smallestIndex;
+}
 
-    double s = perimeter(sideA, sideB, sideC) / 2;
-    return sqrt((s*(s - sideA)*(s - sideB)*(s - sideC)));
+// Purpose    -- Swaps two persons records.
+// Parameters -- Inputs --
+//               Outputs --
+//               Inputs/Outputs --  personType &first -- first persons record.
+//                                  personType &second -- second persons record.
+// Return     --
+void swap(personType &first, personType &second)
+{
+    personType temp = first;
+    first = second;
+    second = temp;
+}
+
+// Purpose    -- Sorts an array of persons records by name.
+// Parameters -- Inputs -- int n -- number of names in the array.
+//               Outputs --
+//               Inputs/Outputs -- personType persons[] -- array of persons records.
+// Return     --
+void sortNames(personType persons[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        int smallestNameIndex = findSmallestName(persons, i, n);
+        swap(persons[i], persons[smallestNameIndex]);
+    }
+}
+
+// Purpose    -- Sorts an array of persons records by age.
+// Parameters -- Inputs -- int n -- number of names in the array.
+//               Outputs --
+//               Inputs/Outputs -- personType persons[] -- array of persons records.
+// Return     --
+void sortAges(personType persons[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        int smallestAgeIndex = findSmallestAge(persons, i, n);
+        swap(persons[i], persons[smallestAgeIndex]);
+    }
+}
+
+// Purpose    -- Prints an array of persons records.
+// Parameters -- Inputs -- personType persons[] -- array of persons records.
+//                          int n -- number of names in the array.
+//               Outputs --
+//               Inputs/Outputs --
+// Return     --
+void print(const personType persons[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << persons[i].name << " " << persons[i].age << endl;
+    }
 }
